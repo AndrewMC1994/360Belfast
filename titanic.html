@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Titanic Quarter</title>
+    <meta name="description" content="Composite — A-Frame">
+    <script src="js/aframe-master.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        
+<!-- CURSOR ENTITY -->
+<a-entity position="0 0 1">
+  <a-entity
+    id="camera"
+    camera
+    look-controls
+    rotation="0 0 0"
+    wasd-controls
+  >
+    <!-- MAIN CURSOR -->
+    d<a-entity
+      cursor="fuse: true; maxDistance: 500; timeout: 3000;"
+      id="cursor-main"
+      position="0 0 -2"
+      geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;"
+      material="color: #439DC2;"
+    >
+      <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
+      <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
+    </a-entity>
+    <a-entity
+      id="cursor-loader"
+      position="0 0 -2.0001"
+      geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03;"
+      material="color: #2ADD2A;"
+    >
+    </a-entity>
+  </a-entity>
+</a-entity>
+        
+      <a-assets>
+        <img id="lake" src="img/titanic.jpg">
+        <img id="pdx" src="img/3d.png">
+          <img id="back" src="img/back.png">
+          <img id="info" src="img/moreinfo.png">
+      </a-assets>
+
+      <a-sky src="#lake"></a-sky>
+      <a-image src="#pdx" width="18" height="7" position="0 0.22 -3"
+               scale="0.2 0.2 0.2"></a-image>
+         <a-image src="#back" width="18" height="5" position="-1.33 -0.8 -3"
+               scale="0.055 0.1 0" link="href:menu.html; on: click; visualAspectEnabled: false"></a-image>
+        
+        <a-image src="#info" width="18" height="5" position="0.53 -0.8 -3"
+               scale="0.14 0.1 0"></a-image>
+    </a-scene>
+      
+      
+      
+  </body>
+</html>
